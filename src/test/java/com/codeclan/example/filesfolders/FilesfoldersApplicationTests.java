@@ -1,7 +1,9 @@
 package com.codeclan.example.filesfolders;
 
+import com.codeclan.example.filesfolders.models.File;
 import com.codeclan.example.filesfolders.models.Folder;
 import com.codeclan.example.filesfolders.models.User;
+import com.codeclan.example.filesfolders.repositories.FileRepository;
 import com.codeclan.example.filesfolders.repositories.FolderRepository;
 import com.codeclan.example.filesfolders.repositories.UserRepository;
 import org.junit.jupiter.api.Test;
@@ -20,6 +22,9 @@ class FilesfoldersApplicationTests {
 	@Autowired
 	FolderRepository folderRepository;
 
+	@Autowired
+	FileRepository fileRepository;
+
 	@Test
 	void contextLoads() {
 	}
@@ -31,5 +36,17 @@ class FilesfoldersApplicationTests {
 
 		Folder folder = new Folder("CodeClan Homework", user);
 		folderRepository.save(folder);
+	}
+
+	@Test
+	public void createFolderAndFileThenSave() {
+		User user = new User("Iain");
+		userRepository.save(user);
+
+		Folder folder = new Folder("CodeClan Homework", user);
+		folderRepository.save(folder);
+
+		File file = new File("Spring", ".md", 30, folder);
+		fileRepository.save(file);
 	}
 }

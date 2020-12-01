@@ -3,6 +3,7 @@ package com.codeclan.example.filesfolders.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -28,6 +29,7 @@ public class Folder {
     public Folder(String title, User user) {
         this.title = title;
         this.user = user;
+        this.files = new ArrayList<>();
     }
 
     public Folder() {
