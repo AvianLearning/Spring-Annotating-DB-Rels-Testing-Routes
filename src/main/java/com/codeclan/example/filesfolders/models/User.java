@@ -51,4 +51,8 @@ public class User {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public void addFolder(Folder folder) {
+        this.folders.add(folder);
+    }
 }

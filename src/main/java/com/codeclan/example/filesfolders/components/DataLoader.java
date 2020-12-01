@@ -55,6 +55,17 @@ public class DataLoader implements ApplicationRunner {
         File file3 = new File("Zombies", ".txt", 100, folder3);
         fileRepository.save(file3);
 
+        folder1.addFile(file1);
+        folder1.addFile(file2);
+        folderRepository.save(folder1);
 
+        folder2.addFile(file1);
+        folder2.addFile(file2);
+        folder2.addFile(file3);
+        folderRepository.save(folder2);
+
+        iain.addFolder(folder1);
+        iain.addFolder(folder2);
+        userRepository.save(iain);
     }
 }
